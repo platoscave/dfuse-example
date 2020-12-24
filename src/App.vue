@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <GraphqlTest/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import ApolloExample from './components/ApolloExample.vue'
+import GraphqlTest from './components/GraphqlTest.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    //ApolloExample
+    GraphqlTest
   }
 }
 </script>
@@ -22,7 +24,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+          color: whitesmoke;
+
   margin-top: 60px;
 }
+body {
+    background-color: #2c3e50;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    color: #42b983;
+}
+
 </style>
