@@ -1,25 +1,26 @@
 <template>
-  <div class="graphql-test">
-    <pre style="text-align: left;">{{ JSON.stringify(block, null, 4 )}}</pre>
+  <div>
+    <h1>Hello</h1>
+    <h1>{{ hello }}</h1>
   </div>
 </template>
 
 <script>
-import { queryBlockNum } from "../graphql";
+import gql from 'graphql-tag';
+
 export default {
-  name: "GraphQL-Test",
   data() {
     return {
-      block: "none",
+      hello: '',
     };
   },
   apollo: {
-    block: {
-      query: queryBlockNum,
-      variables: {
-        blockNum: 104782163,
-      },
-    },
+    // Simple query that will update the 'hello' vue property
+    hello: gql`
+      query {
+        hello
+      }
+    `,
   },
 };
 </script>

@@ -1,14 +1,17 @@
 
 // Example provided by defuse
 // https://github.com/dfuse-io/docs/blob/master/samples/typescript/eos/stream-action-rates/src/client.ts
+// Generic Vue Apollo example:
+// https://stackabuse.com/building-graphql-apis-with-vue-js-and-apollo-client
 import { WebSocketLink } from "apollo-link-ws";
+import { onError } from "apollo-link-error"
 import ApolloClient from "apollo-client/ApolloClient";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { createDfuseClient } from "@dfuse/client";
 
 const dfuseClient = createDfuseClient({
   network: "eos.dfuse.eosnation.io",
-  apiKey: "web_e6cd62f1d80fab50f186e796ec746a08"
+  apiKey: "web_c899883c6398dac8638d146971ef0f67" //eos nation api key
 })
 
 const wsLink = new WebSocketLink({
@@ -26,7 +29,19 @@ const wsLink = new WebSocketLink({
   }
 });
 
+
+// Error Handling
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+      graphQLErrors.map(({ message, locations, path }) =>
+          console.log(
+              `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+          )
+      )
+  if (networkError) console.log(`[Network error]: ${networkError}`)
+})
+
 export const apolloClient = new ApolloClient({
-  link: wsLink,
+  link: errorLink.concat(wsLink),
   cache: new InMemoryCache()
 });

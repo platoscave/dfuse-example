@@ -11,10 +11,12 @@
   },
   "main": "babel.config.js",
   "dependencies": {
-    "@dfuse/client": "^0.3.17",
+    "@dfuse/client": "^0.3.20",
+    "apollo-boost": "^0.4.9",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-apollo": "^3.0.0-beta.11"
+    "vue-apollo": "^3.0.0-beta.11",
+    "vue-idb": "^0.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 //import { createProvider } from './vue-apollo'
-import { apolloProvider } from './apollo'
+import { apolloProvider } from './XXXapollo'
 
 // copied from react 
 //import { apolloClient } from "./client.ts";
